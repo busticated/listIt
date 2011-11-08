@@ -1,78 +1,81 @@
 <!doctype html>
 <head>
-  <script src="http://code.jquery.com/jquery-latest.js"></script>
-  <script src="../jquery.listIt.js"></script>
-  <link rel="stylesheet" href="qunit.css" type="text/css" media="screen">
-  <script type="text/javascript" src="qunit.js"></script>
-
-  <script>
-    $(document).ready(function(){
-      // SETUP //////////////////////////////////////////////////////
-      var cfg = {
-          items: false, //["you@me.com", "why@because.com"],
-          itemTmpl: "",
-          containerClass: "editList",
-          delBtnClass: "btn small",
-          showDelBtn: true,
-          fadeTime: 250,
-          addBtnId: "",
-          addBtnClass: "btn small",
-          addBtnText: "Add",
-          showAddBtn: true,
-          inputId: "",
-          inputClass: "editList",
-          inputName: "",
-          showInput: true,
-          onBeforeAdd: function (value) { },
-          onAdd: function (value) { },
-          onBeforeDel: function (value) { },
-          onDel: function (value) { },
-          tmpl: ""
-        },
-        $test_custTmpl = $(".test_custTmpl"),
-        $test_itemsViaHTML = $(".test_itemsViaHTML"),
-        $test_itemsViaJS = $(".test_itemsViaJS");
+    <link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-git.css" type="text/css" media="screen">
+    <script type="text/javascript" src="http://code.jquery.com/qunit/qunit-git.js"></script>
 
 
-      $test_custTmpl.listIt({
-        addBtnId: "js-KitBoxesAdd",
-        showInput: false,
-        itemTmpl: '<input type="text" value="" autocomplete="off"> <input type="text" value="" autocomplete="off"> <input type="checkbox"></span>'
-      }).addClass("heyKid");
 
-      $test_itemsViaHTML.listIt().addClass("supHomie");
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="../jquery.listIt.js"></script>
 
-      $test_itemsViaJS.listIt({
-        items: ["you@me.com", "why@because.com", "uh@wuuuuut.com"],
-        showAddBtn: false,
-        showInput: true,
-        showDelBtn: false
-      }).addClass("cheeeeseIt");
+    <script>
+        $(document).ready(function(){
+            // SETUP //////////////////////////////////////////////////////
+            var cfg = {
+                items: false, //["you@me.com", "why@because.com"],
+                itemTmpl: "",
+                containerClass: "editList",
+                delBtnClass: "btn small",
+                showDelBtn: true,
+                fadeTime: 250,
+                addBtnId: "",
+                addBtnClass: "btn small",
+                addBtnText: "Add",
+                showAddBtn: true,
+                inputId: "",
+                inputClass: "editList",
+                inputName: "",
+                showInput: true,
+                onBeforeAdd: function (value) { },
+                onAdd: function (value) { },
+                onBeforeDel: function (value) { },
+                onDel: function (value) { },
+                tmpl: ""
+            },
+            $test_custTmpl = $(".test_custTmpl"),
+            $test_itemsViaHTML = $(".test_itemsViaHTML"),
+            $test_itemsViaJS = $(".test_itemsViaJS");
 
-      // TESTS //////////////////////////////////////////////////////
-      module("List 01: Custom item template", {
-        setup: function(){},
-        teardown: function(){}
-      });
-      test("Initalize and wrap raw list items", function(){
-        var $target = $("#js-KitBoxes li span"),
+
+            $test_custTmpl.listIt({
+                addBtnId: "js-KitBoxesAdd",
+                showInput: false,
+                itemTmpl: '<input type="text" value="" autocomplete="off"> <input type="text" value="" autocomplete="off"> <input type="checkbox"></span>'
+        }).addClass("heyKid");
+
+        $test_itemsViaHTML.listIt().addClass("supHomie");
+
+        $test_itemsViaJS.listIt({
+            items: ["you@me.com", "why@because.com", "uh@wuuuuut.com"],
+            showAddBtn: false,
+            showInput: true,
+            showDelBtn: false
+        }).addClass("cheeeeseIt");
+
+        // TESTS //////////////////////////////////////////////////////
+        module("List 01: Custom item template", {
+            setup: function(){},
+            teardown: function(){}
+        });
+        test("Initalize and wrap raw list items", function(){
+            var $target = $("#js-KitBoxes li span"),
             hasAddBtn = $("#js-KitBoxesAdd").length > 0 ? true : false,
             isSet = $test_custTmpl.is(".heyKid");
 
-        $("#js-KitBoxesAdd").trigger("click");
+            $("#js-KitBoxesAdd").trigger("click");
 
-        equal($target.length, "6", "Wrapped list items");
-        ok(hasAddBtn, "Add button has been appended to the list");
-        ok(isSet, "Chain-ability intact!");
-      });
+            equal($target.length, "6", "Wrapped list items");
+            ok(hasAddBtn, "Add button has been appended to the list");
+            ok(isSet, "Chain-ability intact!");
+        });
 
     });
-  </script>
-  <style>
-    
-  </style>
+</script>
+<style>
+
+</style>
 </head>
-  <body>
+<body>
     <h1 id="qunit-header">jQuery listIt Plugin: Test Suite</h1>
     <h2 id="qunit-banner"></h2>
     <div id="qunit-testrunner-toolbar"></div>
@@ -80,32 +83,32 @@
     <ol id="qunit-tests"></ol>
     <div id="qunit-fixture">
 
-      <ul id="js-KitBoxes" class="test_custTmpl">
-        <li class=""><input type="text" value="from 01" autocomplete="off"> <input type="text" value="contents 01" autocomplete="off"> <input type="checkbox"></li>
-        <li class=""><input type="text" value="from 02" autocomplete="off"> <input type="text" value="contents 02" autocomplete="off"> <input type="checkbox"></li>
-        <li class=""><input type="text" value="from 03" autocomplete="off"> <input type="text" value="contents 03" autocomplete="off"> <input type="checkbox"></li>
-      </ul>
+        <ul id="js-KitBoxes" class="test_custTmpl">
+            <li class=""><input type="text" value="from 01" autocomplete="off"> <input type="text" value="contents 01" autocomplete="off"> <input type="checkbox"></li>
+            <li class=""><input type="text" value="from 02" autocomplete="off"> <input type="text" value="contents 02" autocomplete="off"> <input type="checkbox"></li>
+            <li class=""><input type="text" value="from 03" autocomplete="off"> <input type="text" value="contents 03" autocomplete="off"> <input type="checkbox"></li>
+        </ul>
 
 
-      <ul id="js-Stuff2" class="test_itemsViaHTML">
-        <li class="">mmirande@screamingcircuits.com</li>
-        <li class="">mattmirande@gmail.com</li>
-        <li class="">meatlightning@gmail.com</li>
-        <li class="">itsbusticated@gmail.com</li>
-      </ul>
-      <span>spoiler!!</span>
+        <ul id="js-Stuff2" class="test_itemsViaHTML">
+            <li class="">mmirande@screamingcircuits.com</li>
+            <li class="">mattmirande@gmail.com</li>
+            <li class="">meatlightning@gmail.com</li>
+            <li class="">itsbusticated@gmail.com</li>
+        </ul>
+        <span>spoiler!!</span>
 
 
-      <ol id="js-Stuff3" class="test_itemsViaHTML">
-        <li class="">Item 1</li>
-        <li class="">Item 2</li>
-        <li class="">Item 3</li>
-        <li class="">Item 4</li>
-      </ol>
+        <ol id="js-Stuff3" class="test_itemsViaHTML">
+            <li class="">Item 1</li>
+            <li class="">Item 2</li>
+            <li class="">Item 3</li>
+            <li class="">Item 4</li>
+        </ol>
 
 
-      <ul id="js-Stuff" class="test_itemsViaJS"><ul>
+        <ul id="js-Stuff" class="test_itemsViaJS"><ul>
 
-    </div>
-  </body>
-</html>
+            </div>
+        </body>
+    </html>
